@@ -1,0 +1,59 @@
+{
+  "name": "gitlab-artifact-integration",
+  "version": "1.0.0",
+  "description": "gitLab artifiact integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/*.ts --require ts-node/register",
+    "clean-dist": "rimraf dist",
+    "copy": "npm run clean-dist && copyfiles \"./tasks/**/!(*.ts|*.js.map|package-lock.json)\" dist && copyfiles vss-extension.json LICENSE *.md dist && copyfiles images/** dist",
+    "debugtest": "mocha tests/_suite.ts",
+    "debug-node": "node ./scripts/share",
+    "debug": "node --inspect-brk .\\tasks\\downloadartifacts\\index.js",
+    "share": "npm run copy && node ./scripts/share",
+    "init": "npm install && pushd \"tasks/DownloadRepo/DownloadRepoV1\" && npm install && popd",
+    "dedupe": "pushd \"tasks/DownloadRepo/DownloadRepoV1\" && npm dedupe && npm prune --production && popd",
+    "compile": "tsc && tslint --config tslint.json",
+    "build": "npm run compile && npm run copy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://onlyutkarsh.visualstudio.com/DefaultCollection/VSTSExtensions/_git/gitlab-artifact-integration"
+  },
+  "keywords": [
+    "vsts",
+    "gitlab"
+  ],
+  "author": "utkarsh",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "npm": "^6.4.0",
+    "path": "^0.12.7",
+    "shelljs": "^0.8.2",
+    "vsts-task-lib": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^4.0.3",
+    "@types/fs-extra": "^5.0.4",
+    "@types/glob": "^5.0.35",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.9.4",
+    "@types/q": "^1.5.0",
+    "@types/rimraf": "^2.0.2",
+    "@types/semver": "^5.5.0",
+    "assert": "^1.4.1",
+    "copyfiles": "^2.1.0",
+    "dotenv": "^6.0.0",
+    "fs-extra": "^7.0.0",
+    "glob": "^7.1.3",
+    "mocha": "^5.2.0",
+    "rimraf": "^2.6.2",
+    "semver": "^5.5.1",
+    "token-substitute": "^1.2.0",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "tslint-language-service": "^0.9.9",
+    "typescript": "^3.0.1"
+  }
+}

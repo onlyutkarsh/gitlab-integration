@@ -1,0 +1,18 @@
+{
+  "name": "onlyutkarsh-gitlab-dev",
+  "version": "0.0.0",
+  "description": "download artifact task",
+  "main": "index.js",
+  "scripts": {
+    "clean-task": "npm dedupe && npm prune --production"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "events": "^3.0.0",
+    "fs-extra": "^7.0.0",
+    "path": "^0.12.7",
+    "vsts-task-lib": "^2.6.0"
+  }
+}
