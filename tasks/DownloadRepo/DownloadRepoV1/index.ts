@@ -11,7 +11,7 @@ async function main() {
 
         // get the task vars
         let connection = tl.getInput("connection", true);
-        let endpointUrl = tl.getEndpointUrl(connection, false);
+        let endpointUrl = tl.getEndpointDataParameter(connection, "gitlaburl",false);
         let auth = tl.getEndpointAuthorization(connection, false);
         if (auth.scheme !== "Token") {
             throw new Error(`The authorization scheme ${auth.scheme} is not supported for GitLab endpoint`);
@@ -45,7 +45,7 @@ async function main() {
         console.info("Done");
 
         tl.debug("Finding repository url");
-        let gitApi = new GitApi();
+        let gitApi = new GitApi(endpointUrl);
         let repoUrl = await gitApi.getRepoUrl(definition, token);
         console.info(`Repo Url: ${url.format(repoUrl)}`);
 

@@ -4,9 +4,16 @@ import { AxiosResponse } from "axios";
 
 export class GitApi {
 
+    gitlaburl : string;
+
+    constructor(gitlaburl: string){
+        this.gitlaburl = gitlaburl;
+    }
+
+
     public async getRepoUrl(definition: string, token: string): Promise<url.UrlWithStringQuery> {
 
-        let getSelectedRepoUrl = `https://gitlab.com/api/v4/projects/${definition}`;
+        let getSelectedRepoUrl = `${this.gitlaburl}/api/v4/projects/${definition}`;
 
         let response = await this.exec(getSelectedRepoUrl, token);
 
@@ -19,8 +26,8 @@ export class GitApi {
     }
 
     public async getLatestCommitIdFromBranch(definition: string, token: string, branch?: string): Promise<string> {
-        let commitsFromDefaultBranchUrl = `https://gitlab.com/api/v4/projects/${definition}/repository/commits`;
-        let commitsFromSpecifiBranchUrl = `https://gitlab.com/api/v4/projects/${definition}/repository/commits?ref_name=${branch}`;
+        let commitsFromDefaultBranchUrl = `${this.gitlaburl}/api/v4/projects/${definition}/repository/commits`;
+        let commitsFromSpecifiBranchUrl = `${this.gitlaburl}/api/v4/projects/${definition}/repository/commits?ref_name=${branch}`;
 
         branch = branch || "";
         let commitId: string;

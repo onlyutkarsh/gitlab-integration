@@ -3,7 +3,7 @@
 	"id": "gitlab-integration",
 	"name": "GitLab Integration for Azure Pipelines",
 	"publisher": "onlyutkarsh",
-	"version": "0.0.157",
+	"version": "0.0.158",
 	"public": false,
 	"description": "Download sources from GitLab repository in your build definition or consume them as an artifact in to your release definition during deployment.",
 	"categories": [
@@ -73,7 +73,7 @@
 				"displayName": "GitLab",
 				"url": {
 					"displayName": "Server URL",
-					"value": "https://gitlab.com",
+					"value": "https://git-oab.si.fr.intraorange",
 					"helpText": "Client service connection for GitLab. You don't need to change this unless you are using self hosted GitLab instance, in which case you may need to point to your instance URL. ",
 					"isVisible": true
 				},
@@ -82,6 +82,17 @@
 						"id": "username",
 						"name": "Username",
 						"description": "Username you use to login to GitLab. This is required only to validate your PAT token using 'Verify connection' link below.",
+						"inputMode": "textbox",
+						"isConfidential": false,
+						"validation": {
+							"isRequired": true,
+							"dataType": "string"
+						}
+					},
+					{
+						"id": "gitlaburl",
+						"name": "GitLab Url",
+						"description": "git lab url of your gitlab server",
 						"inputMode": "textbox",
 						"isConfidential": false,
 						"validation": {
@@ -181,7 +192,7 @@
 					{
 						"id": "definition",
 						"name": "Source (repository)",
-						"description": "Repository to pull",
+						"description": "ID of the Repository to pull",
 						"inputMode": "Combo",
 						"isConfidential": false,
 						"hasDynamicValueInformation": true,
