@@ -46,7 +46,7 @@ async function main() {
 
         tl.debug("Finding repository url");
         let gitApi = new GitApi();
-        let repoUrl = await gitApi.getRepoUrl(definition, token);
+        let repoUrl = await gitApi.getRepoUrl(endpointUrl, definition, token);
         console.info(`Repo Url: ${url.format(repoUrl)}`);
 
         commitId = commitId || "";
@@ -54,7 +54,7 @@ async function main() {
             console.info("Identifying commit id");
             if (versionSelector === "latestDefaultBranch") {
                 tl.debug("Finding commit for default branch");
-                commitId = await gitApi.getLatestCommitIdFromBranch(definition, token);
+                commitId = await gitApi.getLatestCommitIdFromBranch(endpointUrl, definition, token);
             }
             else if (versionSelector === "latestSpecificBranch") {
                 tl.debug(`Finding commit for '${branch}' branch`);
@@ -83,7 +83,7 @@ async function main() {
         };
 
         // Git clone
-        let num = await gitWrapper.clone(formattedRepoUrl, false, downloadPath, options);
+        await gitWrapper.clone(formattedRepoUrl, false, downloadPath, options);
         console.info("Done");
 
         console.info(`Checking out branch '${branch}'`);

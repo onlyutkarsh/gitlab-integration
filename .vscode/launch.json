@@ -15,7 +15,12 @@
             "request": "launch",
             "name": "Debug share.js",
             "program": "${workspaceRoot}/scripts/share.js",
-            "cwd": "${workspaceRoot}"
+            "preLaunchTask": "npm: copy",
+            "args": [
+                "--beta"
+            ],
+            "cwd": "${workspaceRoot}",
+            "envFile": "${workspaceFolder}/.env"
         },
         {
             "name": "Launch task",
@@ -30,21 +35,11 @@
             "runtimeArgs": [
                 "--nolazy"
             ],
-            "env": {
-                "NODE_ENV": "development",
-                "INPUT_connection" : "connection",
-                "INPUT_definition" : "onlyutkarsh/demoext",
-                "INPUT_downloadPath" : "c:\\temp\\",
-                "ENDPOINT_DATA_connection_USERNAME": "onlyutkarsh",
-                "INPUT_branch" : "master",
-                "ENDPOINT_AUTH_connection": "{\"scheme\": \"Token\", \"parameters\": {\"apitoken\": \"MOCK-TOKEN\"}}",
-                "ENDPOINT_URL_connection": "https://gitlab.com",
-                "BUILD_SOURCESDIRECTORY": "C:\\agents\\latest\\_work\\21\\s"
-            },
+            "envFile": "${workspaceFolder}/.env",
             "console": "integratedTerminal",
             "sourceMaps": true,
             "outFiles": [
-                "${workspaceFolder}/tasks/index.js"
+                "${workspaceFolder}/tasks/DownloadRepo/DownloadRepoV1/index.js"
             ]
         },
         {

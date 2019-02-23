@@ -31,47 +31,47 @@ export class GitWrapper extends events.EventEmitter {
         this.gitInstalled = _gitExePath !== null;
     }
 
-    public async remote(args: string[], options?: IGitExecOptions): Promise<number> {
+    public async remote(args: string[], options?: IGitExecOptions) {
         options = options || <IGitExecOptions>{};
         options.useGitExe = true;
         options.creds = true;
         return this.exec(["remote"].concat(args), options);
     }
 
-    public async fetch(args: string[], options?: IGitExecOptions): Promise<number> {
+    public async fetch(args: string[], options?: IGitExecOptions) {
         options = options || <IGitExecOptions>{};
         options.useGitExe = true;
         options.creds = true;
         return this.exec(["fetch"].concat(args), options);
     }
 
-    public async checkout(ref: string, options?: IGitExecOptions): Promise<number> {
+    public async checkout(ref: string, options?: IGitExecOptions) {
         options = options || <IGitExecOptions>{};
         options.useGitExe = true;
         options.creds = true;
         return this.exec(["checkout", ref], options);
     }
 
-    public async clean(args: string[], options?: IGitExecOptions): Promise<number> {
+    public async clean(args: string[], options?: IGitExecOptions) {
         options = options || <IGitExecOptions>{};
         options.useGitExe = true;
         return this.exec(["clean"].concat(args), options);
     }
 
-    public async reset(args: string[], options?: IGitExecOptions): Promise<number> {
+    public async reset(args: string[], options?: IGitExecOptions) {
         options = options || <IGitExecOptions>{};
         options.useGitExe = true;
         return this.exec(["reset"].concat(args), options);
     }
 
-    public async submodule(args: string[], options?: IGitExecOptions): Promise<number> {
+    public async submodule(args: string[], options?: IGitExecOptions) {
         options = options || <IGitExecOptions>{};
         options.useGitExe = true;
         options.creds = true;
         return this.exec(["submodule"].concat(args), options);
     }
 
-    public async clone(repository: string, progress: boolean, folder: string, options?: IGitExecOptions): Promise<number> {
+    public async clone(repository: string, progress: boolean, folder: string, options?: IGitExecOptions) {
         options = options || <IGitExecOptions>{};
         options.useGitExe = true;
         options.creds = true;
@@ -88,7 +88,7 @@ export class GitWrapper extends events.EventEmitter {
         return this.exec(args, options);
     }
 
-    public async exec(args: string[], options?: IGitExecOptions): Promise<number> {
+    public async exec(args: string[], options?: IGitExecOptions) {
         try {
             let gitPath = options.useGitExe ? _gitExePath : _gitLocalPath;
 
@@ -111,10 +111,6 @@ export class GitWrapper extends events.EventEmitter {
                 this.emit("stdout", data);
             });
 
-            git.on("stderr", (data) => {
-                this.emit("stderr", data);
-            });
-
             args.map((arg: string) => {
                 git.arg(arg); // raw arg
             });
@@ -126,12 +122,12 @@ export class GitWrapper extends events.EventEmitter {
                 silent: true,
                 outStream: options.outStream || process.stdout,
                 errStream: options.errStream || process.stderr,
-                failOnStdErr: false,
+                failOnStdErr: true,
                 ignoreReturnCode: false,
                 windowsVerbatimArguments: false
             };
             tl.debug(`Working directory for the command is: ${ops.cwd}`);
-            return await git.exec(ops);
+            return await git.execSync(ops);
         } catch (error) {
             tl.error(error);
             throw new Error("Unable to execute git command.");

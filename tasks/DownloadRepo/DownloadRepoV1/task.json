@@ -3,8 +3,8 @@
 	"name": "downloadgitlabrepository",
 	"friendlyName": "Download GitLab repository",
 	"description": "Download your GitLab repository using 'clone' command in your build/release definition.",
-	"author": "onlyutkarsh",
-	"helpMarkDown": "**v__VERSION__** <br/>[More Information](https://marketplace.visualstudio.com/items?itemName=onlyutkarsh.gitlab-integration)",
+	"author": "Utkarsh Shigihalli",
+	"helpMarkDown": "[More Information](https://marketplace.visualstudio.com/items?itemName=onlyutkarsh.gitlab-integration)",
 	"category": "Utility",
 	"visibility": [
 		"Build",
@@ -79,7 +79,7 @@
 			"name": "downloadPath",
 			"type": "string",
 			"label": "Download Path",
-			"defaultValue": "",
+			"defaultValue": "$(System.DefaultWorkingDirectory)",
 			"required": false,
 			"helpMarkDown": "Optional. Path on the agent machine where the artifacts will be downloaded. If not supplied, uses `$(System.DefaultWorkingDirectory)`"
 		}
