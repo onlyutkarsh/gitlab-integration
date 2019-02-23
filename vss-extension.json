@@ -108,7 +108,7 @@
 					},
 					{
 						"name": "CommitsFromSelectedBranch",
-						"endpointUrl": "{{{endpoint.url}}}api/v4/projects/{{{definition}}}/repository/commits?ref_name={{{branch}}}",
+						"endpointUrl": "{{{endpoint.url}}}api/v4/projects/{{{definition}}}/repository/commits{{#if branch}}?ref_name={{{branch}}}",
 						"resultSelector": "jsonpath:$[*]"
 					},
 					{
