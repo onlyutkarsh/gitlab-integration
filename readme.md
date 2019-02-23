@@ -62,7 +62,12 @@ Click `Add` and select the created GitLab service connection. Once you do that, 
 
 ## Changes
 
-> - 1.0 - Initial release
+> - #{Release.ReleaseName}#
+>   - Fix [issue 8](https://github.com/onlyutkarsh/gitlab-integration/issues/8) where on-premises URL configured in the endpoint was not considered
+>   - Merge [PR #6](https://github.com/onlyutkarsh/gitlab-integration/pull/6)
+>   - Other minor fixes
+> - 1.0.0
+>   - Initial release
 
 ## Feedback
 

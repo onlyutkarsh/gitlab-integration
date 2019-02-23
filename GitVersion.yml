@@ -1,0 +1,13 @@
+mode: ContinuousDeployment
+branches:
+  master:
+    mode: ContinuousDeployment
+    tag: ''
+  pull-request:
+    tag: pr
+  feature:
+    tag: beta
+  hotfix:
+    tag: rc
+ignore:
+  sha: []
