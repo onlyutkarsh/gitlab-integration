@@ -1,6 +1,5 @@
 import * as axios from "axios";
 import * as url from "url";
-import { AxiosResponse } from "axios";
 
 export class GitApi {
 
@@ -24,7 +23,7 @@ export class GitApi {
 
         branch = branch || "";
         let commitId: string;
-        let response: AxiosResponse<any>;
+        let response: axios.AxiosResponse<any>;
         if (branch.trim() === "") {
             // get commits from default branch
             response = await this.exec(commitsFromDefaultBranchUrl, token);
@@ -48,7 +47,7 @@ export class GitApi {
         return commitId;
     }
 
-    private async exec(url: string, token: string): Promise<AxiosResponse<any>> {
+    private async exec(url: string, token: string): Promise<axios.AxiosResponse<any>> {
         let config: axios.AxiosRequestConfig = {
             headers: { "Private-Token": token },
             method: "get"

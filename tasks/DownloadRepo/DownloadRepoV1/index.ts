@@ -86,7 +86,13 @@ async function main() {
         await gitWrapper.clone(formattedRepoUrl, false, downloadPath, options);
         console.info("Done");
 
-        console.info(`Checking out branch '${branch}'`);
+        if (versionSelector === "latestDefaultBranch") {
+            console.info(`Checking out from default branch`);
+            branch = branch || "";
+        }
+        else {
+            console.info(`Checking out branch '${branch}'`);
+        }
         // Checkout branch
         await gitWrapper.checkout(branch, options);
         console.info("Done");
