@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://onlyutkarsh.visualstudio.com/DefaultCollection/VSTSExtensions/_git/gitlab-artifact-integration"
+    "url": "https://github.com/onlyutkarsh/gitlab-integration.git"
   },
   "keywords": [
     "vsts",

@@ -1,4 +1,4 @@
-import * as tl from "vsts-task-lib";
+import * as tl from "azure-pipelines-task-lib";
 import * as url from "url";
 import * as path from "path";
 import { GitWrapper, IGitExecOptions } from "./gitwrapper";

@@ -1,5 +1,5 @@
-import * as tl from "vsts-task-lib";
-import * as trm from "vsts-task-lib/toolrunner";
+import * as tl from "azure-pipelines-task-lib";
+import * as trm from "azure-pipelines-task-lib/toolrunner";
 import * as events from "events";
 import * as path from "path";
 
