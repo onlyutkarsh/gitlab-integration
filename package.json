@@ -26,8 +26,6 @@
   "author": "utkarsh",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
-    "azure-pipelines-task-lib": "~2.7.7",
     "path": "^0.12.7"
   },
   "devDependencies": {
@@ -47,7 +45,6 @@
     "glob": "^7.1.3",
     "rimraf": "^2.6.3",
     "semver": "^5.6.0",
-    "token-substitute": "^1.2.0",
     "ts-node": "^8.0.2",
     "tslint": "^5.12.1",
     "tslint-language-service": "^0.9.9",

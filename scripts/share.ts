@@ -4,7 +4,6 @@ import * as proc from "child_process";
 import * as path from "path";
 import * as semver from "semver";
 import * as fs from "fs-extra";
-import * as substitute from "token-substitute";
 import * as yargs from "yargs";
 import * as chalks from "chalk";
 import * as jsonPatch from "fast-json-patch";
