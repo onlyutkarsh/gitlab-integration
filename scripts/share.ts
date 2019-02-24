@@ -90,18 +90,18 @@ function updateTaskJson(taskJsons: string[]) {
         let taskJson = require(taskFilePath);
         let tempTaskId = taskJson.id;
         let tempHelpMarkdown = taskJson.helpMarkDown;
-        let tempFriendlyName = taskJson.friendlyName.replace(/\(beta\)/g, "").trim();
+        let tempFriendlyName = taskJson.friendlyName.replace(/\(Dev:\)/g, "").trim();
         let tempTaskVersion = semver.valid(`${taskJson.version["Major"]}.${taskJson.version["Minor"]}.${taskJson.version["Patch"]}`);
         let newTaskVersion = semver.inc(tempTaskVersion, "patch");
         let betaTaskPatch: jsonPatch.Operation[] = [
             { op: "replace", path: "/version/Major", value: semver.major(newTaskVersion) },
             { op: "replace", path: "/version/Minor", value: semver.minor(newTaskVersion) },
             { op: "replace", path: "/version/Patch", value: semver.patch(newTaskVersion) },
-            { op: "replace", path: "/helpMarkDown", value: newTaskVersion },
+            { op: "replace", path: "/helpMarkDown", value: "Dev - v" + newTaskVersion }
         ];
         if (argv.beta) {
-            console.log(chalk.yellow("Applying task id for BETA testing"));
-            betaTaskPatch.push({ op: "replace", path: "/id", value: taskids.betaId }, { op: "replace", path: "/friendlyName", value: tempFriendlyName + " (beta)" });
+            console.log(chalk.yellow("Applying task id for DEV testing"));
+            betaTaskPatch.push({ op: "replace", path: "/id", value: taskids.betaId }, { op: "replace", path: "/friendlyName", value: "Dev: " + tempFriendlyName });
         }
         else {
             console.log(chalk.yellow("Applying task id for PROD"));
@@ -115,7 +115,6 @@ function updateTaskJson(taskJsons: string[]) {
         console.log("Updated task.json in dist folder");
         // revert to the old task name
         patchedJson.id = taskids.id;
-        patchedJson.name = tempFriendlyName;
         patchedJson.helpMarkDown = tempHelpMarkdown;
         patchedJson.friendlyName = tempFriendlyName;
         let parsedPath = taskFilePath.replace("dist\\", "");
