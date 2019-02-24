@@ -3,9 +3,9 @@
 	"id": "gitlab-integration",
 	"name": "GitLab Integration for Azure Pipelines",
 	"publisher": "onlyutkarsh",
-	"version": "0.0.166",
+	"version": "0.0.168",
 	"public": false,
-	"description": "Download sources from GitLab repository in your build definition or consume them as an artifact in to your release definition during deployment.",
+	"description": "Download sources from GitLab repository in your build pipeline or consume them as an artifact in to your release pipeline during deployment.",
 	"categories": [
 		"Azure Pipelines"
 	],
@@ -102,7 +102,7 @@
 					},
 					{
 						"name": "Repositories",
-						"endpointUrl": "{{{endpoint.url}}}api/v4/projects?owned=true",
+						"endpointUrl": "{{{endpoint.url}}}api/v4/projects?membership=true",
 						"resultSelector": "jsonpath:$[*]"
 					},
 					{

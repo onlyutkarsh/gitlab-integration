@@ -62,12 +62,15 @@ Click `Add` and select the created GitLab service connection. Once you do that, 
 
 ## Changes
 
-> - #{Release.ReleaseName}#
+> - v#{Release.ReleaseName}#
+>   - Fix [issue 2](https://github.com/onlyutkarsh/gitlab-integration/issues/2) where only user owned repos were fetched rather than membership 
+> - v1.0.5
 >   - Fix [issue 8](https://github.com/onlyutkarsh/gitlab-integration/issues/8) where on-premises URL configured in the endpoint was not considered
->   - Merge [PR #6](https://github.com/onlyutkarsh/gitlab-integration/pull/6)
+>   - Merge pull request [#6](https://github.com/onlyutkarsh/gitlab-integration/pull/6)
 >   - Other minor fixes
-> - 1.0.0
+> - v1.0.0
 >   - Initial release
+> _For more details please see GitHub [releases](https://github.com/onlyutkarsh/gitlab-integration/releases)_
 
 ## Feedback
 
