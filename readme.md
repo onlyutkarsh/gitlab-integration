@@ -70,6 +70,7 @@ Click `Add` and select the created GitLab service connection. Once you do that, 
 >   - Other minor fixes
 > - v1.0.0
 >   - Initial release
+> 
 > _For more details please see GitHub [releases](https://github.com/onlyutkarsh/gitlab-integration/releases)_
 
 ## Feedback
