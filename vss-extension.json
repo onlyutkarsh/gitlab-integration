@@ -280,10 +280,44 @@
 						"target": "artifactItems",
 						"dataSourceName": "Artifacts",
 						"resultTemplate": "{ Value : \"{{{path}}}\", DisplayValue : \"{{{path}}}\", data: { itemType: \"{{ #stringReplace ['tree','blob'] ['folder','file'] type }}\" } }"
+					},
+					{
+						"target": "listwebhook",
+						"endpointUrl": "{{{endpoint.url}}}projects/{{definition}}/hooks",
+						"requestVerb": "Post",
+						"requestContent": "{}",
+						"resultSelector": "jsonpath:$"
+					},
+					{
+						"target": "createwebhook",
+						"endpointUrl": "{{{endpoint.url}}}projects/{{definition}}/hooks?url={{payloadUrl}}",
+						"requestVerb": "Post",
+						"requestContent": "{}",
+						"resultSelector": "jsonpath:$"
+					},
+					{
+						"target": "deletewebhook",
+						"endpointUrl": "{{{endpoint.url}}}projects/{{definition}}/hooks/{{hookid}}",
+						"requestVerb": "Post",
+						"requestContent": "{}",
+						"resultSelector": "jsonpath:$"
 					}
 				],
 				"browsableArtifactTypeMapping": {
 					"folder": "artifactItems"
+				},
+				"ArtifactTriggerConfiguration": {
+					"isTriggerSupported": true,
+					"isTriggerSupportedOnlyInHosted": false,
+					"isWebhookSupportedAtServerLevel": false,
+					"resources": {
+						"TriggerDisabledMessage": "Enabling the trigger will create a new release every time a new commit is made in the selected repository and the branch"
+					},
+					"payloadHashHeaderName": "X-GitLab-Token",
+					"webhookPayloadMapping": {
+						"version": "{{id}}",
+						"definition": "{{name}}"
+					}
 				}
 			}
 		}
