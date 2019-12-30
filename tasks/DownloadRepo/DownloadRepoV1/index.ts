@@ -58,7 +58,7 @@ async function main() {
             }
             else if (versionSelector === "latestSpecificBranch") {
                 tl.debug(`Finding commit for '${branch}' branch`);
-                commitId = await gitApi.getLatestCommitIdFromBranch(definition, token, branch);
+                commitId = await gitApi.getLatestCommitIdFromBranch(endpointUrl, definition, token, branch);
             }
         }
         console.info(`Commit id: ${commitId}`);
