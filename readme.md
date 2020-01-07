@@ -3,8 +3,9 @@
 This extension integrates GitLab with Azure Pipelines. With this extension, you will be able to download the sources from a GitLab repository (using `clone` command) and use downloaded sources in Azure Pipelines. The extension comes as an artifact source in `Release Management` and also has a `Build` task to download sources in your build pipeline.
 
 > **3rd Party Notices**
-> - *GitLab is the trademark of GitLab, Inc. The GitLab trademark and logo are associated with GitLab - For details go to [GitLab License](https://gitlab.com/gitlab-com/gitlab-artwork/blob/master/README.md) page.*
-> - *This extension has been developed by Utkarsh Shigihalli and is not associated with [GitLab](https://gitlab.com/).* 
+>
+> - _GitLab is the trademark of GitLab, Inc. The GitLab trademark and logo are associated with GitLab - For details go to [GitLab License](https://gitlab.com/gitlab-com/gitlab-artwork/blob/master/README.md) page._
+> - _This extension has been developed by Utkarsh Shigihalli and is not associated with [GitLab](https://gitlab.com/)._
 
 ## Usage
 
@@ -22,7 +23,7 @@ You will now see a window asking for GitLab details. Enter your GitLab `UserName
 
 If you verified successfully, click `OK` to save.
 
-### 2. Downloading GitLab repo in Release 
+### 2. Downloading GitLab repo in Release
 
 Once you have the GitLab service connection setup, go to `Release` hub in Azure Pipelines and edit a release definition. Click `Add` [1 in image below] on artifacts and select `GitLab` [2 in image below].
 
@@ -36,7 +37,7 @@ You will then need to select the GitLab service connection you created. Once you
 
 ![Add repo](images/screenshots/add-repo-release.png)
 
-Save the release definition and trigger a new release. 
+Save the release definition and trigger a new release.
 
 In the dialog which opens, you will see all your linked artifacts. You will have an option to fill in the commit id if you have selected `specify at the time of release creation` for an artifact source.
 
@@ -50,7 +51,7 @@ Once you link your artifact to release, you will also be able to browse the link
 
 ### 4. Downloading GitLab repo in Build
 
-In some scenarios, you may also want to consume the GitLab repository in your Azure Pipelines build definition. The extension provides the build task to clone and download the repository. 
+In some scenarios, you may also want to consume the GitLab repository in your Azure Pipelines build definition. The extension provides the build task to clone and download the repository.
 
 In your build definition, search for the task and you should see the task listed.
 
@@ -63,14 +64,16 @@ Click `Add` and select the created GitLab service connection. Once you do that, 
 ## Changes
 
 > - v#{Release.ReleaseName}#
->   - Fix [issue 2](https://github.com/onlyutkarsh/gitlab-integration/issues/2) where only user owned repos were fetched rather than membership 
+>   - Fix [issue 17](https://github.com/onlyutkarsh/gitlab-integration/issues/17)
+> - v1.0.7
+>   - Fix [issue 2](https://github.com/onlyutkarsh/gitlab-integration/issues/2) where only user owned repos were fetched rather than membership
 > - v1.0.5
 >   - Fix [issue 8](https://github.com/onlyutkarsh/gitlab-integration/issues/8) where on-premises URL configured in the endpoint was not considered
 >   - Merge pull request [#6](https://github.com/onlyutkarsh/gitlab-integration/pull/6)
 >   - Other minor fixes
 > - v1.0.0
 >   - Initial release
-> 
+>
 > _For more details please see GitHub [releases](https://github.com/onlyutkarsh/gitlab-integration/releases)_
 
 ## Feedback
