@@ -83,3 +83,23 @@ Please rate the extension and share/tweet to spread the word!!
 ## Credits
 
 Special thanks to Sriram Balasubramaniam, Omesh Pandita, Romil Goyal, Ashok Kirla and Gopinath Chigakkagari from Microsoft product team, for all the guidance and support in developing this extension.
+
+
+
+## Development
+
+- Clone the repo
+- Run `npm install` to install all the dependencies
+- To compile the core `npm run build`
+- To package and share the extension to your private account do the following
+  - Create a .env file in the root directory (place is along side `package.json`)
+  - Add following lines
+     ```
+     VSTS_PAT="YOUR_PAT"
+     VSTS_ACCOUNT="YOUR_ORG_NAME"
+    ```
+  - Then run `npm run share` - This will automatically do the following
+    - Increment the extension version in the manifest file
+    - Update the extension name to prefix "Dev:"
+    - Change the task unique identifier
+    - Share the extension with the account.
