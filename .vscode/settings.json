@@ -1,17 +1,18 @@
 {
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/*.js.map": true,
-        "**/*.taskkey": true,
-        "**/*.js": {
-            "when": "$(basename).ts"
-        }
-    },
-    "workbench.colorCustomizations": {
-        "tab.activeBorder": "#ff0000",
-    },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/*.js.map": true,
+    "**/*.taskkey": true,
+    "**/*.js": {
+      "when": "$(basename).ts"
+    }
+  },
+  "editor.formatOnSave": true,
+  "workbench.colorCustomizations": {
+    "tab.activeBorder": "#23c1ff",
+  }
 }
