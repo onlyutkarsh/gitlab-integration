@@ -3,7 +3,7 @@
 	"id": "gitlab-integration",
 	"name": "GitLab Integration for Azure Pipelines",
 	"publisher": "onlyutkarsh",
-	"version": "0.0.175",
+	"version": "0.0.176",
 	"public": false,
 	"description": "Download sources from GitLab repository in your build pipeline or consume them as an artifact in to your release pipeline during deployment.",
 	"categories": [
@@ -283,7 +283,7 @@
 					},
 					{
 						"target": "listwebhook",
-						"endpointUrl": "{{{endpoint.url}}}projects/{{definition}}/hooks",
+						"endpointUrl": "{{{endpoint.url}}}api/v4/projects/{{definition}}/hooks",
 						"requestVerb": "Post",
 						"requestContent": "{}",
 						"resultSelector": "jsonpath:$.[*]",
@@ -291,14 +291,14 @@
 					},
 					{
 						"target": "createwebhook",
-						"endpointUrl": "{{{endpoint.url}}}projects/{{definition}}/hooks?url={{payloadUrl}}",
+						"endpointUrl": "{{{endpoint.url}}}api/v4/projects/{{definition}}/hooks?url={{payloadUrl}}",
 						"requestVerb": "Post",
 						"requestContent": "{}",
 						"resultSelector": "jsonpath:$.[*]"
 					},
 					{
 						"target": "deletewebhook",
-						"endpointUrl": "{{{endpoint.url}}}projects/{{definition}}/hooks/{{hookid}}",
+						"endpointUrl": "{{{endpoint.url}}}api/v4/projects/{{definition}}/hooks/{{hookid}}",
 						"requestVerb": "Post",
 						"requestContent": "{}",
 						"resultSelector": "jsonpath:$.[*]"
