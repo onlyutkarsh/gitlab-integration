@@ -1,12 +1,12 @@
-# GitLab Integration for Azure Pipelines
-
-This extension integrates GitLab with Azure Pipelines. With this extension, you will be able to download the sources from a GitLab repository (using `clone` command) and use downloaded sources in Azure Pipelines. The extension comes as an artifact source in `Release Management` and also has a `Build` task to download sources in your build pipeline.
-
-**Important Note**
+** ⚠️ Important Note**
 
 > *Unfortunately, after almost a two years of on-and-off development I can no longer dedicate the time needed to be a responsible maintainer of this project. The Azure DevOps API has changed quite often makeing it difficult for me to keep up with the pace and also has some limitations which has caused some issues to linger longer. Thanks to the Microsoft product group I received lots of feedback and [suggestions](https://github.com/onlyutkarsh/gitlab-integration/commit/9f17d42a8ae82e41f7286bf826a61dd8292ad98a). This extension will remain available for install but please use at your own risk*. 
 
 > Thanks to all the folks that have used this extension and provided me feedback!
+
+# GitLab Integration for Azure Pipelines
+
+This extension integrates GitLab with Azure Pipelines. With this extension, you will be able to download the sources from a GitLab repository (using `clone` command) and use downloaded sources in Azure Pipelines. The extension comes as an artifact source in `Release Management` and also has a `Build` task to download sources in your build pipeline.
 
 > **3rd Party Notices**
 >
